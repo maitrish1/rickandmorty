@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import useCharacter from "../../hooks/useCharacter";
-import { Card, CardContent, CardMedia, Typography, Button, Menu, MenuItem } from "@mui/material";
+import {Typography, Button, Menu, MenuItem, Box, Grid } from "@mui/material";
 import { Character, LocationData } from '@/app/types';
 
 type CharacterPageProps = {
@@ -49,43 +49,22 @@ const CharacterPage: React.FC<CharacterPageProps> = ({ params }) => {
   if (characterError) return <div>An error has occurred: {characterError.message}</div>;
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        height="140"
-        image={characterData?.image}
-        alt={characterData?.name}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+    <Grid container alignItems='center' justifyContent='center'>
+      <Box >
+        <Typography variant="h3" component="h1" gutterBottom>
           {characterData?.name}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Status: {characterData?.status}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Species: {characterData?.species}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Gender: {characterData?.gender}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Origin: {characterData?.origin.name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Location: {characterData?.location.name}
-        </Typography>
+        <img src={characterData?.image} alt={characterData?.name} />
+        <Typography variant="body1">Status: {characterData?.status}</Typography>
+        <Typography variant="body1">Species: {characterData?.species}</Typography>
+        <Typography variant="body1">Gender: {characterData?.gender}</Typography>
+        <Typography variant="body1">Origin: {characterData?.origin.name}</Typography>
+        <Typography variant="body1">Location: {characterData?.location.name}</Typography>
         {locationData && (
           <>
-            <Typography variant="body2" color="text.secondary">
-              Location Name: {locationData.name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Dimension: {locationData.dimension}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Number of Residents: {locationData.residents.length}
-            </Typography>
+            <Typography variant="body1">Location Name: {locationData.name}</Typography>
+            <Typography variant="body1">Dimension: {locationData.dimension}</Typography>
+            <Typography variant="body1">Number of Residents: {locationData.residents.length}</Typography>
           </>
         )}
         {episodeNames.length > 0 && (
@@ -108,8 +87,8 @@ const CharacterPage: React.FC<CharacterPageProps> = ({ params }) => {
             </Menu>
           </>
         )}
-      </CardContent>
-    </Card>
+      </Box>
+    </Grid>
   );
 };
 

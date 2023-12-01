@@ -2,11 +2,12 @@
 
 import React from "react";
 import {
-  FormControl,
   InputLabel,
   Select,
   MenuItem,
   SelectChangeEvent,
+  Box,
+  FormControl,
 } from "@mui/material";
 
 interface SelectProps {
@@ -15,9 +16,9 @@ interface SelectProps {
 }
 
 export const StatusSelect: React.FC<SelectProps> = ({ value, onChange }) => (
-  <FormControl variant="outlined">
-    <InputLabel>Status</InputLabel>
-    <Select value={value} onChange={onChange}>
+  <FormControl fullWidth>
+    <InputLabel id='status'>Status</InputLabel>
+    <Select labelId="status" value={value} label='Status' onChange={onChange}>
       <MenuItem value="">
         <em>None</em>
       </MenuItem>
@@ -29,9 +30,9 @@ export const StatusSelect: React.FC<SelectProps> = ({ value, onChange }) => (
 );
 
 export const GenderSelect: React.FC<SelectProps> = ({ value, onChange }) => (
-  <FormControl variant="outlined">
-    <InputLabel>Gender</InputLabel>
-    <Select value={value} onChange={onChange}>
+  <FormControl fullWidth>
+    <InputLabel id='gender'>Gender</InputLabel>
+    <Select labelId="gender" value={value} onChange={onChange}>
       <MenuItem value="">
         <em>None</em>
       </MenuItem>
@@ -44,9 +45,9 @@ export const GenderSelect: React.FC<SelectProps> = ({ value, onChange }) => (
 );
 
 export const SpeciesSelect: React.FC<SelectProps> = ({ value, onChange }) => (
-  <FormControl variant="outlined">
-    <InputLabel>Species</InputLabel>
-    <Select value={value} onChange={onChange}>
+  <FormControl fullWidth>
+    <InputLabel id='species'>Species</InputLabel>
+    <Select labelId="species" value={value} onChange={onChange}>
       <MenuItem value="">None</MenuItem>
       <MenuItem value="Human">Human</MenuItem>
       <MenuItem value="Alien">Alien</MenuItem>

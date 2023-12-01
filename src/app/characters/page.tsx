@@ -12,7 +12,7 @@ import {
   StatusSelect,
 } from "../components/FormSelect";
 import { ApiResponse, Character } from "../types";
-import { Grid, Skeleton, TextField, Typography } from "@mui/material";
+import { Grid, Skeleton, Stack, TextField, Typography } from "@mui/material";
 
 const CharacterComponent: React.FC = () => {
   const router = useRouter();
@@ -58,8 +58,9 @@ const CharacterComponent: React.FC = () => {
   };
 
   return (
-    <>
-      <TextField
+    <Grid container display='flex' justifyContent='center' alignItems='center'>
+      <Stack width='100%' flexDirection='row' alignItems='center'> 
+      <TextField fullWidth
         label="Search"
         variant="outlined"
         onChange={(e) => setSearchTerm(e.target.value)}
@@ -76,6 +77,8 @@ const CharacterComponent: React.FC = () => {
         value={filter.species}
         onChange={(e) => setFilter({ ...filter, species: e.target.value })}
       />
+      </Stack>
+     
 
       {characters && characters.some((character) => character !== undefined) ? (
         <InfiniteScroll
@@ -112,7 +115,7 @@ const CharacterComponent: React.FC = () => {
           <Typography variant="h3">No character as such</Typography>
         </Grid>
       )}
-    </>
+    </Grid>
   );
 };
 
