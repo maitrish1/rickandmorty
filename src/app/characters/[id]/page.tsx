@@ -49,7 +49,7 @@ const CharacterPage: React.FC<CharacterPageProps> = ({ params }) => {
   if (characterError) return <div>An error has occurred: {characterError.message}</div>;
 
   return (
-    <Grid textAlign='center' bgcolor='red' container alignItems='center' flexDirection='column' justifyContent='center'>
+    <Grid textAlign='center' container alignItems='center' flexDirection='column' justifyContent='center'>
         <Typography variant="h3" gutterBottom>
           {characterData?.name}
         </Typography>

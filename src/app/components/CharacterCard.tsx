@@ -7,7 +7,7 @@ type Props = {
 
 const CharacterCard: React.FC<Props> = ({ character }) => {
   return (
-    <Card sx={{ maxWidth: 200, maxHeight:500 }}>
+    <Card sx={{ maxWidth: 200, maxHeight:500, mb:5,  }}>
       <CardMedia
         component="img"
         height="200"
