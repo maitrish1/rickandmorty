@@ -59,8 +59,8 @@ const CharacterComponent: React.FC = () => {
 
   return (
     <Grid container display='flex' justifyContent='center' alignItems='center'>
-      <Stack width='100%' flexDirection='row' alignItems='center'> 
-      <TextField fullWidth
+    <Stack width='100%' flexDirection='row' alignItems='center' flexWrap={{xs:'wrap', md:'nowrap', lg:'nowrap'}}> 
+      <TextField fullWidth size="small"
         label="Search"
         variant="outlined"
         onChange={(e) => setSearchTerm(e.target.value)}
@@ -87,15 +87,15 @@ const CharacterComponent: React.FC = () => {
           hasMore={hasNextPage ?? false}
           loader={<h4>Loading...</h4>}
         >
-          <Grid container alignItems='center' justifyContent='center' spacing={3}>
+          <Grid mt={5} container alignItems='center' justifyContent='center'>
             {characters.map(
               (character) =>
                 character && (
-                  <Grid
+                  <Grid px={4} display='flex' alignItems='center' justifyContent='center'
                     xs={12}
-                    sm={6}
+                    sm={12}
                     md={4}
-                    lg={2}
+                    lg={3}
                     key={character.id}
                     onClick={() => handleCharacterClick(character.id)}
                   >

@@ -16,7 +16,7 @@ interface SelectProps {
 }
 
 export const StatusSelect: React.FC<SelectProps> = ({ value, onChange }) => (
-  <FormControl fullWidth>
+  <FormControl size="small" fullWidth>
     <InputLabel id='status'>Status</InputLabel>
     <Select labelId="status" value={value} label='Status' onChange={onChange}>
       <MenuItem value="">
@@ -30,7 +30,7 @@ export const StatusSelect: React.FC<SelectProps> = ({ value, onChange }) => (
 );
 
 export const GenderSelect: React.FC<SelectProps> = ({ value, onChange }) => (
-  <FormControl fullWidth>
+  <FormControl size="small" fullWidth>
     <InputLabel id='gender'>Gender</InputLabel>
     <Select labelId="gender" value={value} onChange={onChange}>
       <MenuItem value="">
@@ -45,7 +45,7 @@ export const GenderSelect: React.FC<SelectProps> = ({ value, onChange }) => (
 );
 
 export const SpeciesSelect: React.FC<SelectProps> = ({ value, onChange }) => (
-  <FormControl fullWidth>
+  <FormControl size="small" fullWidth>
     <InputLabel id='species'>Species</InputLabel>
     <Select labelId="species" value={value} onChange={onChange}>
       <MenuItem value="">None</MenuItem>

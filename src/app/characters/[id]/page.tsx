@@ -49,9 +49,8 @@ const CharacterPage: React.FC<CharacterPageProps> = ({ params }) => {
   if (characterError) return <div>An error has occurred: {characterError.message}</div>;
 
   return (
-    <Grid container alignItems='center' justifyContent='center'>
-      <Box >
-        <Typography variant="h3" component="h1" gutterBottom>
+    <Grid textAlign='center' bgcolor='red' container alignItems='center' flexDirection='column' justifyContent='center'>
+        <Typography variant="h3" gutterBottom>
           {characterData?.name}
         </Typography>
         <img src={characterData?.image} alt={characterData?.name} />
@@ -87,7 +86,6 @@ const CharacterPage: React.FC<CharacterPageProps> = ({ params }) => {
             </Menu>
           </>
         )}
-      </Box>
     </Grid>
   );
 };
