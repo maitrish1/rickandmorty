@@ -2,6 +2,11 @@
 
 import { useInfiniteQuery, UseInfiniteQueryOptions } from 'react-query';
 
+interface PageInfo {
+  info?: {
+    next?: string;
+  };
+}
 // Define API endpoint types
 type Endpoint = 'character' | 'location' | 'episode';
 
@@ -23,7 +28,7 @@ const fetchData = async (endpoint: Endpoint, pageParam: number | null, params: R
 
 
 // Define custom hook to fetch data with React Query
-const useApi = <T>(endpoint: Endpoint, filter: Record<string, string>, options?: UseInfiniteQueryOptions<T, Error>) => {
+const useApi = <T extends PageInfo>(endpoint: Endpoint, filter: Record<string, string>, options?: UseInfiniteQueryOptions<T, Error>) => {
   return useInfiniteQuery<T, Error>(
     endpoint,
     ({ pageParam = 1 }) => fetchData(endpoint, pageParam, filter),
